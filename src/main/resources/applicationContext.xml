@@ -6,8 +6,11 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="testBean"
-          class="org.brovko.springcourse.TestBean">
-        <constructor-arg value="Neil"/>
+    <bean id="musicBean"
+          class="org.brovko.springcourse.RockMusic">
+    </bean>
+    <bean id="musicPlayer"
+          class="org.brovko.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 </beans>
