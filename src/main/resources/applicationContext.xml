@@ -17,7 +17,8 @@
           class="org.brovko.springcourse.TransMusic">
     </bean>
     <bean id="musicPlayer"
-          class="org.brovko.springcourse.MusicPlayer">
+          class="org.brovko.springcourse.MusicPlayer"
+          scope="prototype">
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
         <property name="musicList">
