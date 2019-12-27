@@ -6,11 +6,26 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="musicBean"
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <bean id="musicBeanClassical"
+          class="org.brovko.springcourse.ClassicalMusic">
+    </bean>
+    <bean id="musicBeanRock"
           class="org.brovko.springcourse.RockMusic">
+    </bean>
+    <bean id="musicBeanTrans"
+          class="org.brovko.springcourse.TransMusic">
     </bean>
     <bean id="musicPlayer"
           class="org.brovko.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+        <property name="musicList">
+            <list>
+                <ref bean="musicBeanClassical" />
+                <ref bean="musicBeanRock" />
+                <ref bean="musicBeanTrans" />
+            </list>
+        </property>
     </bean>
 </beans>
