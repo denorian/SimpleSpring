@@ -2,7 +2,7 @@ package org.brovko.springcourse;
 
 import org.springframework.stereotype.Component;
 
-@Component("musicBeanClassical")
+@Component
 public class ClassicalMusic implements Music {
 	
 	private ClassicalMusic() {
@@ -18,7 +18,7 @@ public class ClassicalMusic implements Music {
 	
 	@Override
 	public String getSong() {
-		return "Rapsody";
+		return "Rhapsody";
 	}
 	
 	public static ClassicalMusic getClassicalMusic(){

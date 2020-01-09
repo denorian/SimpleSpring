@@ -1,8 +1,7 @@
 package org.brovko.springcourse;
 
 import org.springframework.stereotype.Component;
-
-@Component("musicBeanRock")
+@Component
 public class RockMusic implements Music {
 	@Override
 	public String getSong() {

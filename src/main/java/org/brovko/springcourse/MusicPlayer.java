@@ -1,44 +1,21 @@
 package org.brovko.springcourse;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
 public class MusicPlayer {
-	private List<Music> musicList = new ArrayList<>();
+	private ClassicalMusic classicalMusic;
+	private RockMusic rockMusic;
 	
-	private String name;
-	private int volume;
-	
-	public MusicPlayer() {
+	@Autowired
+	public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+		this.classicalMusic = classicalMusic;
+		this.rockMusic = rockMusic;
 	}
 	
-	public void playMusic(){
-		for (Music music : musicList) {
-			System.out.println("Playing: " + music.getSong());
-		}
+	public String playMusic(){
+		return "Playing: " + classicalMusic.getSong();
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public int getVolume() {
-		return volume;
-	}
-	
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-	
-	public List<Music> getMusicList() {
-		return musicList;
-	}
-	
-	public void setMusicList(List<Music> musicList) {
-		this.musicList = musicList;
-	}
+
 }
