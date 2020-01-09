@@ -1,32 +1,17 @@
 package org.brovko.springcourse;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import java.util.Random;
 
 public class MusicPlayer {
-	@Value("${musicPlayer.name}")
-	private String name;
-	@Value("${musicPlayer.volume}")
-	private int volume;
-	private Music music1;
-	private Music music2;
+	private MusicList musicList;
 	
-	public MusicPlayer(
-			@Qualifier("classicalMusic") Music music1,
-			@Qualifier("rockMusic") Music music2) {
-		this.music1 = music1;
-		this.music2 = music2;
+	public MusicPlayer(MusicList musicList) {
+		this.musicList = musicList;
 	}
 	
 	public String playMusic(){
-		return "Playing: " + music1.getSong() + " " +   music2.getSong() ;
+		int index = (new Random()).nextInt(musicList.getList().size());
+		return "Playing: " + musicList.list.get(index).getSong() ;
 	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public int getVolume() {
-		return volume;
-	}
+
 }

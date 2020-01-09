@@ -2,9 +2,9 @@ package org.brovko.springcourse;
 
 import org.springframework.stereotype.Component;
 
-public class TransMusic implements Music {
+public class JazzMusic implements Music {
 	@Override
 	public String getSong() {
-		return "Tuvan";
+		return "what a wonderful world";
 	}
 }
